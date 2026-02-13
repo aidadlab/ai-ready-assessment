@@ -5,8 +5,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 // ──────────────────────────────────────────────
 const CONFIG = {
   // Kit (ConvertKit) — Replace with your actual form ID
-  KIT_FORM_ID: "YOUR_KIT_FORM_ID",
-  KIT_API_KEY: "", // Optional: only needed for API approach
+  KIT_FORM_ID: "9083818",
+  KIT_API_KEY: "7G0d5vNd-Xb_bnsahgxGeA", // Optional: only needed for API approach
 
   // Your main site URL
   SITE_URL: "https://www.aitoolsforkids.com",
