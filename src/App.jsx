@@ -359,29 +359,25 @@ function getProject(a) {
 async function submitToKit(email, answers, profile) {
   const formId = CONFIG.KIT_FORM_ID;
   if (formId === "YOUR_KIT_FORM_ID") {
-    console.warn("Kit form ID not configured — email not submitted. Update CONFIG.KIT_FORM_ID");
-    return true; // Return true so UI still shows success in dev
+    console.warn("Kit form ID not configured");
+    return true;
   }
 
   try {
-    const res = await fetch(`https://api.convertkit.com/v3/forms/${formId}/subscribe`, {
+    const formData = new FormData();
+    formData.append("email_address", email);
+    formData.append("fields[child_age]", answers.age || "");
+    formData.append("fields[interests]", (answers.interests || []).join(", "));
+    formData.append("fields[experience]", answers.experience || "");
+    formData.append("fields[priorities]", (answers.priorities || []).join(", "));
+    formData.append("fields[involvement]", answers.involvement || "");
+    formData.append("fields[budget]", answers.budget || "");
+    formData.append("fields[goal]", answers.goal || "");
+    formData.append("fields[ai_profile]", profile.tier);
+
+    const res = await fetch(`https://app.kit.com/forms/${formId}/subscriptions`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        api_key: CONFIG.KIT_API_KEY,
-        email,
-        fields: {
-          child_age: answers.age || "",
-          interests: (answers.interests || []).join(", "),
-          experience: answers.experience || "",
-          priorities: (answers.priorities || []).join(", "),
-          involvement: answers.involvement || "",
-          budget: answers.budget || "",
-          goal: answers.goal || "",
-          ai_profile: profile.tier,
-        },
-        tags: [profile.tier.toLowerCase().replace(/\s/g, "-")],
-      }),
+      body: formData,
     });
     return res.ok;
   } catch (err) {
