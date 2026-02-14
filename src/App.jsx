@@ -498,7 +498,7 @@ function ToolCard({ tool, answers, index }) {
           <p style={{ fontSize: 13, fontWeight: 600, color: B.navy, margin: "0 0 4px" }}>Why this is perfect for your child:</p>
           <p style={{ fontSize: 14, color: B.text, margin: 0, lineHeight: 1.5 }}>{why}</p>
         </div>
-        <a href={`${CONFIG.SITE_URL}${tool.link}`} target="_blank" rel="noopener noreferrer"
+        <a href={`${CONFIG.SITE_URL}${tool.link}`}
           onClick={() => track("tool_clicked", { tool: tool.name, position: index + 1, affiliate: !!tool.affiliate })}
           style={{ display: "block", textAlign: "center", padding: "12px 20px", background: B.navy, color: B.white, textDecoration: "none", borderRadius: 10, fontSize: 14, fontWeight: 700, transition: "opacity 0.2s" }}>
           See Full Review →
@@ -556,7 +556,7 @@ function Results({ answers, onRestart }) {
         <p style={{ fontSize: 12, fontWeight: 700, color: B.cyan, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>🎬 Try This First</p>
         <h4 style={{ fontSize: 18, fontWeight: 700, color: B.navy, margin: "0 0 6px" }}>{project.title}</h4>
         <p style={{ fontSize: 14, color: B.muted, margin: "0 0 14px" }}>Ages {project.age} · {project.time} · Step-by-step family project</p>
-        <a href={`${CONFIG.SITE_URL}${project.link}`} target="_blank" rel="noopener noreferrer"
+        <a href={`${CONFIG.SITE_URL}${project.link}`}
           onClick={() => track("project_clicked", { project: project.title })}
           style={{ display: "inline-block", padding: "10px 20px", background: B.cyan, color: B.white, textDecoration: "none", borderRadius: 10, fontSize: 14, fontWeight: 700 }}>
           See Full Project →
@@ -683,11 +683,15 @@ export default function App() {
         ::selection { background:${B.pink}30 }
       `}</style>
       <div ref={ref} style={{ maxWidth: 520, margin: "0 auto", padding: "32px 20px 48px", minHeight: "100vh", background: B.cream }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 32, paddingBottom: 20, borderBottom: `1px solid ${B.border}` }}>
-          <a href={CONFIG.SITE_URL} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: B.navy, letterSpacing: 0.5 }}>AI TOOLS FOR KIDS</span>
-            <span style={{ color: B.border }}>|</span>
-            <span style={{ fontSize: 13, color: B.muted, fontWeight: 500 }}>by AI Dad Lab</span>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32, paddingBottom: 20, borderBottom: `1px solid ${B.border}` }}>
+          <a href={CONFIG.SITE_URL} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
+            <img src="https://cdn.prod.website-files.com/685c147bf76d5fad7df51614/691f05b17d8c606fdded223d_ai-tools-for-kids-logo-webclip.png" alt="AI Tools for Kids" style={{ height: 28, borderRadius: 6 }} />
+            <span style={{ fontSize: 14, fontWeight: 700, color: B.navy, letterSpacing: 0.3 }}>AI Tools for Kids</span>
+          </a>
+          <a href={CONFIG.SITE_URL} style={{ textDecoration: "none", fontSize: 13, color: B.muted, fontWeight: 500, display: "flex", alignItems: "center", gap: 4, transition: "color 0.15s" }}
+            onMouseEnter={(e) => e.currentTarget.style.color = B.navy}
+            onMouseLeave={(e) => e.currentTarget.style.color = B.muted}>
+            ← Back to site
           </a>
         </div>
 
