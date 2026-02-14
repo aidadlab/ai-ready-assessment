@@ -627,14 +627,6 @@ function Welcome({ onStart }) {
         ⏱️ Takes 2 minutes · 100% free · No signup required
       </p>
 
-      {/* Video placeholder — replace src with your YouTube/Vimeo embed */}
-      <div id="video-placeholder"
-        style={{ background: B.navy, borderRadius: 16, padding: "48px 24px", marginBottom: 28, cursor: "pointer" }}
-        onClick={() => { /* Replace: open video modal or play embed */ }}>
-        <div style={{ width: 64, height: 64, borderRadius: "50%", background: `${B.white}20`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 12px", fontSize: 28 }}>▶️</div>
-        <p style={{ fontSize: 14, color: `${B.white}80`, margin: 0 }}>Watch: Why I built this for parents like you (60 sec)</p>
-      </div>
-
       <button onClick={() => { track("assessment_started"); onStart(); }}
         style={{ width: "100%", padding: "18px 32px", border: "none", borderRadius: 14, background: `linear-gradient(135deg, ${B.pink}, #FF6B9D)`, color: B.white, fontSize: 18, fontWeight: 700, cursor: "pointer", boxShadow: `0 6px 25px ${B.pink}50`, transition: "transform 0.15s ease" }}>
         Start the Assessment →
@@ -686,7 +678,7 @@ export default function App() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32, paddingBottom: 20, borderBottom: `1px solid ${B.border}` }}>
           <a href={CONFIG.SITE_URL} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
             <img src="https://cdn.prod.website-files.com/685c147bf76d5fad7df51614/691f05b17d8c606fdded223d_ai-tools-for-kids-logo-webclip.png" alt="AI Tools for Kids" style={{ height: 28, borderRadius: 6 }} />
-            <span style={{ fontSize: 14, fontWeight: 700, color: B.navy, letterSpacing: 0.3 }}>AI Tools for Kids</span>
+            <span style={{ fontSize: 16, fontWeight: 700, color: B.navy, letterSpacing: 0.3 }}>AI Tools for Kids</span>
           </a>
           <a href={CONFIG.SITE_URL} style={{ textDecoration: "none", fontSize: 13, color: B.muted, fontWeight: 500, display: "flex", alignItems: "center", gap: 4, transition: "color 0.15s" }}
             onMouseEnter={(e) => e.currentTarget.style.color = B.navy}
