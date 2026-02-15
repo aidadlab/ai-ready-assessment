@@ -165,135 +165,445 @@ const QUESTIONS = [
 // TOOLS DATABASE
 // ──────────────────────────────────────────────
 const TOOLS = [
+  // ── ART / IMAGE GENERATION ──
   {
-    name: "ChatGPT", slug: "chatgpt", category: ["learning", "writing"],
-    minAge: 8, maxAge: 16, pricing: "free", safety: 4, creativity: 4, education: 5,
-    supervision: "nearby", difficulty: "beginner", sessionTime: "30min",
-    description: "The world's most popular AI chatbot — perfect for homework help, creative writing, and exploring questions together.",
+    name: "Nano Banana Pro", slug: "nano-banana", category: ["art"],
+    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "Google's AI image generator with stunning photorealism and character consistency — great for art projects and storytelling.",
     whyMatch: {
-      create: "Kids can write stories, poems, and creative projects with AI as their co-author",
-      learn: "Instant tutor for any subject — from maths to history to science",
-      together: "Ask wild questions together and explore AI's answers as a family",
-      confident: "Parent-supervised conversations teach responsible AI interaction",
-    },
-    link: "/ai-tools/chatgpt",
-  },
-  {
-    name: "Suno", slug: "suno", category: ["music"],
-    minAge: 5, maxAge: 16, pricing: "free", safety: 5, creativity: 5, education: 3,
-    supervision: "independent", difficulty: "beginner", sessionTime: "15min",
-    description: "Create full songs with lyrics and music in seconds — just describe what you want to hear.",
-    whyMatch: {
-      create: "Your child can produce real songs they'll want to share with everyone",
-      learn: "Teaches songwriting structure, rhythm, and musical genres",
-      together: "Write silly family songs together — our kids' absolute favourite",
-      confident: "Family-safe music generation with content filtering built in",
-    },
-    link: "/ai-tools/suno",
-  },
-  {
-    name: "Nano Banana", slug: "nano-banana", category: ["art", "video"],
-    minAge: 6, maxAge: 16, pricing: "free", safety: 5, creativity: 5, education: 3,
-    supervision: "nearby", difficulty: "beginner", sessionTime: "30min",
-    description: "AI image generator that creates stunning visuals from text descriptions — great for art projects and storytelling.",
-    whyMatch: {
-      create: "Turn any idea into a beautiful image — instant creative confidence boost",
-      learn: "Teaches visual composition, art direction, and descriptive language",
-      together: "Design characters, scenes, and worlds together as a family",
-      confident: "Content-filtered image generation designed for creative projects",
+      create: "Design characters, scenes, and worlds together as a family",
+      learn: "Explore how AI interprets language into visuals — fascinating for curious minds",
+      together: "Take turns writing prompts and see whose imagination creates the best image",
+      confident: "Content-filtered image generation with parent supervision recommended",
     },
     link: "/ai-tools/nano-banana",
   },
   {
-    name: "Synthesis Tutor", slug: "synthesis-tutor", category: ["learning"],
-    minAge: 5, maxAge: 14, pricing: "paid", safety: 5, creativity: 2, education: 5,
+    name: "More Graphics", slug: "more-graphics", category: ["art"],
+    minAge: 6, maxAge: 16, pricing: "free", safety: 5, creativity: 5, education: 3,
     supervision: "independent", difficulty: "beginner", sessionTime: "15min",
-    description: "AI-powered maths tutor that adapts to your child's level — like having a patient private tutor 24/7.",
+    description: "AI pattern and clipart generator — kids can create seamless designs, graphics, and transparent backgrounds for projects.",
     whyMatch: {
-      create: "Kids build mathematical thinking skills through progressive challenges",
-      learn: "Personalised learning path that adapts to exactly where your child is",
-      together: "Review progress reports together and celebrate milestones",
-      confident: "COPPA-compliant, designed specifically for children's independent use",
+      create: "Design unique patterns, stickers, and graphics for school or craft projects",
+      learn: "Understand how AI generates repeating patterns and design elements",
+      together: "Create custom wrapping paper or card designs as a family activity",
+      confident: "Family-friendly generators with safe, appropriate content throughout",
     },
-    link: "/ai-tools/synthesis-tutor", affiliate: true,
-  },
-  {
-    name: "ElevenLabs", slug: "elevenlabs", category: ["music", "writing", "video"],
-    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 4,
-    supervision: "nearby", difficulty: "intermediate", sessionTime: "30min",
-    description: "Create AI voices and sound effects — perfect for podcasts, audiobooks, and video narration.",
-    whyMatch: {
-      create: "Bring stories to life with professional voice narration and sound effects",
-      learn: "Teaches audio production, voice acting concepts, and storytelling",
-      together: "Create family podcasts or narrate stories your kids have written",
-      confident: "Parent-supervised voice creation with responsible AI audio practices",
-    },
-    link: "/ai-tools/elevenlabs", affiliate: true,
+    link: "/ai-tools/more-graphics",
   },
   {
     name: "Playground AI", slug: "playground-ai", category: ["art"],
-    minAge: 8, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
     supervision: "nearby", difficulty: "beginner", sessionTime: "30min",
-    description: "Free AI image generator with 50 images per day — unlimited creative exploration for budding artists.",
+    description: "Free AI image generator offering 50 images per day with multiple AI models and canvas editing.",
     whyMatch: {
-      create: "50 free images daily means endless creative experiments with no cost pressure",
-      learn: "Explore different art styles, from photorealism to anime to watercolour",
-      together: "Challenge each other to create the best image from the same prompt",
-      confident: "Content-safe image generation suitable for creative exploration",
+      create: "Generate artwork for school presentations, stories, or social media projects",
+      learn: "Experiment with different AI models to understand how each interprets prompts differently",
+      together: "Compare results across AI models — a fun family experiment in AI creativity",
+      confident: "Built-in content filters handle most safety concerns with parental guidance",
     },
     link: "/ai-tools/playground-ai",
   },
   {
-    name: "Google Gemini", slug: "google-gemini-3-pro", category: ["learning", "writing", "coding"],
-    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 4, education: 5,
-    supervision: "nearby", difficulty: "intermediate", sessionTime: "60min",
-    description: "Google's powerful AI assistant — excellent for research, coding help, and advanced learning projects.",
+    name: "Bing Image Creator", slug: "bing-image-creator", category: ["art"],
+    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "15min",
+    description: "Microsoft's 100% free AI image generator powered by DALL-E 3 — no subscription required, just a Microsoft account.",
     whyMatch: {
-      create: "Build apps, write code, and create advanced projects with AI assistance",
-      learn: "Deep research capabilities for school projects and self-directed learning",
-      together: "Explore complex topics together with AI as your research partner",
-      confident: "Google's built-in safety systems with family-friendly defaults",
+      create: "Create illustrations for school projects, stories, and creative assignments",
+      learn: "Learn prompt engineering — how describing things differently changes the output",
+      together: "Challenge each other to create the best image from the same prompt",
+      confident: "Microsoft's content filters provide strong safety guardrails",
     },
-    link: "/ai-tools/google-gemini-3-pro",
+    link: "/ai-tools/bing-image-creator",
+  },
+  {
+    name: "Freepik AI Image Generator", slug: "freepik-ai-image-generator", category: ["art"],
+    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "20min",
+    description: "Professional AI image generator with unlimited creation, multiple AI models, and sketch-to-image tools.",
+    whyMatch: {
+      create: "Turn rough sketches into polished artwork — perfect for young designers",
+      learn: "Explore professional design workflows used in real creative industries",
+      together: "Draw something by hand, then watch AI transform it into different styles",
+      confident: "Designed for design projects with appropriate content filtering",
+    },
+    link: "/ai-tools/freepik-ai-image-generator",
+  },
+  {
+    name: "Leonardo AI", slug: "leonardo-ai", category: ["art"],
+    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "45min",
+    description: "Comprehensive AI creative platform for generating high-quality images and visual content with professional tools.",
+    whyMatch: {
+      create: "Create professional-grade artwork, game assets, and visual stories",
+      learn: "Understand advanced AI image generation techniques used by real artists",
+      together: "Design a family comic book or illustrated story using AI-generated art",
+      confident: "Parental guidance recommended for advanced features and content review",
+    },
+    link: "/ai-tools/leonardo-ai",
+    affiliate: true,
+  },
+  {
+    name: "Midjourney", slug: "midjourney", category: ["art"],
+    minAge: 12, maxAge: 16, pricing: "paid", safety: 4, creativity: 5, education: 3,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "Premium AI image generator creating stunning artwork from text prompts via Discord — the gold standard for AI art.",
+    whyMatch: {
+      create: "Create breathtaking artwork that rivals professional illustrations",
+      learn: "Master prompt crafting — a genuinely valuable skill for the AI age",
+      together: "Collaborate on a family art gallery of AI-generated masterpieces",
+      confident: "Discord-based platform requires parental supervision and account management",
+    },
+    link: "/ai-tools/midjourney",
+  },
+  {
+    name: "Quick, Draw!", slug: "quick-draw", category: ["art", "learning"],
+    minAge: 5, maxAge: 12, pricing: "free", safety: 5, creativity: 4, education: 5,
+    supervision: "independent", difficulty: "beginner", sessionTime: "10min",
+    description: "Google's AI drawing game — sketch objects in 20 seconds while a neural network guesses what you're drawing.",
+    whyMatch: {
+      create: "Race to draw objects before the AI guesses — surprisingly addictive",
+      learn: "Understand how AI 'sees' and recognises patterns in a fun, hands-on way",
+      together: "Take turns drawing and cheer each other on — great family game night addition",
+      confident: "Completely safe, educational, and designed by Google for all ages",
+    },
+    link: "/ai-tools/quick-draw",
+  },
+  // ── VIDEO GENERATION ──
+  {
+    name: "Hedra AI", slug: "hedra-ai", category: ["video", "art"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 5, creativity: 5, education: 3,
+    supervision: "independent", difficulty: "beginner", sessionTime: "15min",
+    description: "AI character video creator that transforms static images into expressive talking, singing, and rapping characters.",
+    whyMatch: {
+      create: "Make your drawings or photos come alive — kids absolutely love this",
+      learn: "Understand how AI maps speech to facial movements and expressions",
+      together: "Turn family photos into hilarious talking characters for birthdays or holidays",
+      confident: "Safe and intuitive for independent creative play with content filtering",
+    },
+    link: "/ai-tools/hedra-ai",
+  },
+  {
+    name: "LeiaPix", slug: "leiapix", category: ["video", "art"],
+    minAge: 6, maxAge: 16, pricing: "free", safety: 5, creativity: 5, education: 3,
+    supervision: "independent", difficulty: "beginner", sessionTime: "10min",
+    description: "AI 3D image converter that transforms any 2D photo into an immersive 3D animation — instant wow factor.",
+    whyMatch: {
+      create: "Turn any photo into a moving 3D scene — the results are genuinely impressive",
+      learn: "Explore how AI understands depth and creates 3D from flat images",
+      together: "Transform family holiday photos into 3D memories everyone will want to share",
+      confident: "Completely safe for independent use with no content concerns whatsoever",
+    },
+    link: "/ai-tools/leiapix",
+  },
+  {
+    name: "Pika", slug: "pika", category: ["video"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "20min",
+    description: "AI video generator that creates and edits videos from text prompts and images with cinematic quality.",
+    whyMatch: {
+      create: "Turn text descriptions or photos into short cinematic video clips",
+      learn: "Explore how AI generates motion and understands scene composition",
+      together: "Create a family mini-movie from a holiday photo — magical results",
+      confident: "Content-filtered video generation with parental review recommended",
+    },
+    link: "/ai-tools/pika",
+  },
+  {
+    name: "Runway", slug: "runway", category: ["video"],
+    minAge: 11, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "30min",
+    description: "AI video platform that creates high-quality videos from text, images, and video inputs with professional editing tools.",
+    whyMatch: {
+      create: "Generate professional-quality video content from simple text descriptions",
+      learn: "Understand how AI creates realistic motion and visual effects",
+      together: "Collaborate on a family short film using AI-generated scenes",
+      confident: "Parental guidance recommended for content creation and review",
+    },
+    link: "/ai-tools/runway",
   },
   {
     name: "Kling AI", slug: "kling-ai", category: ["video"],
-    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
-    supervision: "nearby", difficulty: "intermediate", sessionTime: "60min",
-    description: "AI video generator that creates cinematic clips from text or images — we used it to make our Nemo short film.",
+    minAge: 12, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "60min",
+    description: "Advanced AI video generation platform for professional-grade cinematic video creation from text and images.",
     whyMatch: {
-      create: "Turn drawings and photos into animated videos — pure movie magic",
-      learn: "Teaches film concepts like motion, timing, and visual storytelling",
-      together: "Create family short films together — our most popular project so far",
-      confident: "Content-filtered video generation with parent supervision recommended",
+      create: "Create cinematic short films that look genuinely professional",
+      learn: "Learn advanced video production concepts through AI-assisted filmmaking",
+      together: "Direct a family film project with AI handling the special effects",
+      confident: "Complex platform requiring guidance for optimal and responsible use",
     },
     link: "/ai-tools/kling-ai",
+  },
+  {
+    name: "Synthesia", slug: "synthesia", category: ["video"],
+    minAge: 10, maxAge: 16, pricing: "paid", safety: 4, creativity: 5, education: 4,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "AI video platform creating professional videos with realistic AI avatars and voiceovers in 140+ languages.",
+    whyMatch: {
+      create: "Create polished presentation videos with AI avatars — great for school projects",
+      learn: "Understand how AI generates realistic human-like video presentations",
+      together: "Build multilingual family greeting videos with AI avatars",
+      confident: "Professional tool requiring parental guidance for avatar content creation",
+    },
+    link: "/ai-tools/synthesia",
+    affiliate: true,
+  },
+  {
+    name: "Nim Video", slug: "nim-video", category: ["video"],
+    minAge: 10, maxAge: 16, pricing: "paid", safety: 4, creativity: 5, education: 3,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "45min",
+    description: "All-in-one AI video app with 25+ leading AI models for professional video creation.",
+    whyMatch: {
+      create: "Access multiple AI video models in one place — like a video creation studio",
+      learn: "Compare how different AI models handle the same creative brief",
+      together: "Produce a family movie night intro or holiday video greeting",
+      confident: "Advanced platform requiring parental supervision and content guidance",
+    },
+    link: "/ai-tools/nim-video",
+    affiliate: true,
+  },
+  // ── MUSIC & AUDIO ──
+  {
+    name: "Suno", slug: "suno", category: ["music"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "15min",
+    description: "AI music generator that creates complete songs with vocals and instruments from simple text prompts.",
+    whyMatch: {
+      create: "Write silly family songs together — our kids' absolute favourite AI tool",
+      learn: "Explore music genres, song structure, and how AI interprets musical concepts",
+      together: "Create personalised birthday songs, holiday anthems, or bedtime lullabies",
+      confident: "Content-filtered music generation with parental lyric review recommended",
+    },
+    link: "/ai-tools/suno",
+  },
+  {
+    name: "Udio", slug: "udio", category: ["music"],
+    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 3,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "20min",
+    description: "AI music generator creating high-quality songs from text prompts with advanced editing and multiple AI models.",
+    whyMatch: {
+      create: "Generate professional-sounding music in any genre from a text description",
+      learn: "Experiment with different musical styles and understand genre characteristics",
+      together: "Create a family soundtrack or theme song that everyone contributes lyrics to",
+      confident: "Parental guidance on lyric content recommended for younger users",
+    },
+    link: "/ai-tools/udio",
+  },
+  {
+    name: "ElevenLabs", slug: "elevenlabs", category: ["music", "video"],
+    minAge: 13, maxAge: 16, pricing: "free", safety: 3, creativity: 5, education: 4,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "Advanced AI voice generation creating ultra-realistic text-to-speech in 1000s of voices and 32 languages.",
+    whyMatch: {
+      create: "Clone voices, create audiobooks, or add narration to video projects",
+      learn: "Understand how AI replicates human speech patterns and emotional tones",
+      together: "Create a family audiobook or podcast with professional-quality voiceovers",
+      confident: "All content must be pre-approved — powerful tool requiring active supervision",
+    },
+    link: "/ai-tools/elevenlabs",
+    affiliate: true,
+  },
+  {
+    name: "Speechace", slug: "speechace", category: ["music", "learning"],
+    minAge: 5, maxAge: 16, pricing: "free", safety: 5, creativity: 3, education: 5,
+    supervision: "independent", difficulty: "beginner", sessionTime: "15min",
+    description: "AI pronunciation and fluency tool designed specifically for kids — perfect for language learning and speech practice.",
+    whyMatch: {
+      create: "Practice pronunciation and get instant AI feedback on speaking skills",
+      learn: "Build language confidence with patient, non-judgmental AI assessment",
+      together: "Practice a new language together and compare pronunciation scores",
+      confident: "Educational tool designed specifically for children with safe content",
+    },
+    link: "/ai-tools/speechace",
+  },
+  // ── WRITING & TEXT ──
+  {
+    name: "Grammarly", slug: "grammarly", category: ["writing", "learning"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 5, creativity: 4, education: 5,
+    supervision: "independent", difficulty: "beginner", sessionTime: "15min",
+    description: "AI writing assistant for grammar checking, style suggestions, and writing improvement — safe for independent use.",
+    whyMatch: {
+      create: "Improve any writing assignment with real-time grammar and style suggestions",
+      learn: "Learn from corrections — builds genuine writing skills over time, not just fixes",
+      together: "Review writing improvements together and celebrate progress",
+      confident: "Completely safe for independent use — one of the lowest-risk AI tools available",
+    },
+    link: "/ai-tools/grammarly",
+  },
+  {
+    name: "AI Dungeon", slug: "ai-dungeon", category: ["writing"],
+    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 4,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "AI text adventure game with infinite storylines — type actions and watch AI narrate what happens next.",
+    whyMatch: {
+      create: "Build infinite interactive stories where your choices shape the narrative",
+      learn: "Develop creative writing skills through collaborative AI storytelling",
+      together: "Play through an adventure together — taking turns choosing what happens next",
+      confident: "Safe Mode filters available but parental supervision recommended for content",
+    },
+    link: "/ai-tools/ai-dungeon",
+  },
+  {
+    name: "Character.AI", slug: "character-ai", category: ["writing"],
+    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 5, education: 4,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "Chat with AI versions of fictional characters, historical figures, or custom personalities — popular creative tool for teens.",
+    whyMatch: {
+      create: "Design and build your own AI characters with unique personalities",
+      learn: "Interview historical figures for school projects — surprisingly educational",
+      together: "Create a family character and see how each person shapes their personality",
+      confident: "Regular check-ins essential as conversations can go in unexpected directions",
+    },
+    link: "/ai-tools/character-ai",
+  },
+  {
+    name: "Claude", slug: "claude", category: ["writing", "learning"],
+    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 4, education: 5,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "Anthropic's AI assistant focused on helpful, harmless conversations — excellent for writing, research, and learning.",
+    whyMatch: {
+      create: "Co-write stories, brainstorm ideas, and develop creative projects together",
+      learn: "Thoughtful research assistant that explains concepts clearly and honestly",
+      together: "Explore questions together — Claude's careful responses spark great discussions",
+      confident: "Built-in safety focus with honest, harmless design principles",
+    },
+    link: "/ai-tools/claude",
+  },
+  // ── LEARNING & EDUCATION ──
+  {
+    name: "Synthesis Tutor", slug: "synthesis-tutor", category: ["learning"],
+    minAge: 8, maxAge: 14, pricing: "paid", safety: 5, creativity: 2, education: 5,
+    supervision: "independent", difficulty: "beginner", sessionTime: "15min",
+    description: "AI-powered maths tutor that adapts to your child's level — like having a patient private tutor 24/7.",
+    whyMatch: {
+      create: "Work through personalised maths challenges that adapt to your child's level",
+      learn: "Patient AI tutor that adjusts difficulty in real-time — no judgement, just progress",
+      together: "Review progress reports together and celebrate milestones",
+      confident: "Designed for independent child use with optional parent monitoring",
+    },
+    link: "/ai-tools/synthesis-tutor",
+    affiliate: true,
   },
   {
     name: "NotebookLM", slug: "notebooklm", category: ["learning"],
     minAge: 8, maxAge: 16, pricing: "free", safety: 5, creativity: 3, education: 5,
     supervision: "hands-on", difficulty: "beginner", sessionTime: "30min",
-    description: "Google's AI notebook that turns any topic into an engaging podcast — how we taught our 8-year-old about the Irish Famine.",
+    description: "Google's AI research assistant that turns documents into podcasts, study guides, and mind maps — completely free.",
     whyMatch: {
-      create: "Generate educational podcasts on any topic your child is curious about",
-      learn: "Transforms complex topics into age-appropriate audio learning",
-      together: "Listen to AI-generated podcasts together and discuss what you learned",
-      confident: "Google-backed tool focused entirely on educational content",
+      create: "Turn any topic into an engaging AI-generated podcast your child will actually listen to",
+      learn: "Transform school materials into interactive study guides and summaries",
+      together: "Create a podcast episode together about something your family is learning",
+      confident: "Google-backed tool with no content generation concerns — works from your uploaded materials",
     },
     link: "/ai-tools/notebooklm",
   },
   {
-    name: "CapCut", slug: "capcut", category: ["video"],
-    minAge: 10, maxAge: 16, pricing: "free", safety: 3, creativity: 5, education: 3,
-    supervision: "nearby", difficulty: "beginner", sessionTime: "60min",
-    description: "Free video editor with AI-powered effects, auto-captions, and templates — the tool behind most viral videos.",
+    name: "Mindgrasp AI", slug: "mindgrasp-ai", category: ["learning"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 5, creativity: 2, education: 5,
+    supervision: "independent", difficulty: "beginner", sessionTime: "20min",
+    description: "AI learning assistant that creates study materials, summaries, and flashcards from any content.",
     whyMatch: {
-      create: "Edit videos like a pro with AI effects, transitions, and auto-captions",
-      learn: "Teaches video editing, pacing, storytelling, and content creation skills",
-      together: "Edit family videos together or help kids create their own content",
-      confident: "Free to use with parent supervision for social media features",
+      create: "Turn any lesson or video into instant flashcards and study notes",
+      learn: "Personalised study materials that focus on what your child needs to review",
+      together: "Quiz each other using AI-generated flashcards from school topics",
+      confident: "Designed for independent student use with safe educational content",
     },
-    link: "/ai-tools/capcut",
+    link: "/ai-tools/mindgrasp-ai",
+  },
+  {
+    name: "Quizbot AI", slug: "quizbot-ai", category: ["learning"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 4, creativity: 2, education: 5,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "15min",
+    description: "AI quiz generator that creates custom tests from any content — makes revision actually fun.",
+    whyMatch: {
+      create: "Generate quizzes from any topic to make studying interactive and engaging",
+      learn: "Test knowledge retention with AI-adapted questions that find gaps",
+      together: "Create family quiz nights from topics everyone is learning about",
+      confident: "Educational tool with content you control — safe for supervised student use",
+    },
+    link: "/ai-tools/quizbot-ai",
+  },
+  {
+    name: "Teachable Machine", slug: "teachable-machine", category: ["learning", "coding"],
+    minAge: 8, maxAge: 16, pricing: "free", safety: 5, creativity: 4, education: 5,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "30min",
+    description: "Google's free tool where kids train their own AI to recognise images, sounds, and poses — no coding needed.",
+    whyMatch: {
+      create: "Train your own AI model — the only tool where kids build AI, not just use it",
+      learn: "Understand how machine learning actually works through hands-on experimentation",
+      together: "Train an AI to recognise family members, pets, or household objects together",
+      confident: "Google-made educational tool — completely safe with no content concerns",
+    },
+    link: "/ai-tools/teachable-machine",
+  },
+  {
+    name: "Doctrina AI", slug: "doctrina-ai", category: ["learning"],
+    minAge: 10, maxAge: 16, pricing: "free", safety: 4, creativity: 2, education: 5,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "30min",
+    description: "AI education platform for class notes, essay help, and interactive quizzes — built for students.",
+    whyMatch: {
+      create: "Summarise class notes and generate study materials automatically",
+      learn: "AI-powered study companion that adapts to your child's curriculum",
+      together: "Review AI-generated summaries together to ensure understanding, not copying",
+      confident: "Parental guidance recommended to maintain academic integrity",
+    },
+    link: "/ai-tools/doctrina-ai",
+  },
+  {
+    name: "Gemini Storybook", slug: "gemini-storybook", category: ["learning", "writing"],
+    minAge: 5, maxAge: 10, pricing: "free", safety: 4, creativity: 4, education: 5,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "15min",
+    description: "Free AI tool creating personalised 10-page illustrated storybooks with read-aloud narration in 45+ languages.",
+    whyMatch: {
+      create: "Create personalised storybooks starring your child in minutes — they love it",
+      learn: "Build reading confidence with stories tailored to your child's interests and level",
+      together: "Design bedtime stories together featuring family members and favourite things",
+      confident: "Parent creates stories and reviews before sharing — content you control",
+    },
+    link: "/ai-tools/gemini-storybook",
+  },
+  {
+    name: "LittleLit", slug: "littlelit", category: ["learning"],
+    minAge: 4, maxAge: 12, pricing: "free", safety: 4, creativity: 3, education: 5,
+    supervision: "nearby", difficulty: "beginner", sessionTime: "20min",
+    description: "AI creative learning platform with personalised tutoring, storytelling, art, and STEM projects for kids 4-12.",
+    whyMatch: {
+      create: "Explore AI-powered creative projects across art, music, stories, and STEM",
+      learn: "Personalised learning paths that adapt to your child's pace and interests",
+      together: "Review AI interactions together and guide creative choices",
+      confident: "Designed specifically for children with age-appropriate content and interactions",
+    },
+    link: "/ai-tools/littlelit",
+  },
+  {
+    name: "Google Gemini", slug: "google-gemini-3-pro", category: ["learning", "coding"],
+    minAge: 13, maxAge: 16, pricing: "free", safety: 4, creativity: 4, education: 5,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "60min",
+    description: "Google's most advanced AI — excellent for research, coding help, and building interactive learning tools.",
+    whyMatch: {
+      create: "Build apps, write code, and create advanced projects with AI assistance",
+      learn: "Deep research capabilities for school projects and self-directed learning",
+      together: "Explore complex topics together — Gemini excels at breaking down difficult concepts",
+      confident: "Requires separate Google account setup for under-18s with parental oversight",
+    },
+    link: "/ai-tools/google-gemini-3-pro",
+  },
+  // ── CODING ──
+  {
+    name: "AI Query", slug: "ai-query", category: ["coding"],
+    minAge: 12, maxAge: 16, pricing: "free", safety: 4, creativity: 3, education: 5,
+    supervision: "hands-on", difficulty: "intermediate", sessionTime: "45min",
+    description: "AI-powered SQL query generator — converts plain English into database queries, making data skills accessible.",
+    whyMatch: {
+      create: "Write database queries in plain English — no SQL knowledge needed to start",
+      learn: "Learn real-world data skills used in every tech company",
+      together: "Explore databases together and learn how data powers the apps they use daily",
+      confident: "Parental guidance recommended for understanding database concepts",
+    },
+    link: "/ai-tools/ai-query",
   },
 ];
 
@@ -335,7 +645,9 @@ function scoreTool(tool, a) {
   if (tool.minAge > maxA || tool.maxAge < minA) return -1;
   s += 10;
 
-  if ((a.interests || []).some((i) => tool.category.includes(i))) s += 20;
+  // Reward each matching interest (not just any match)
+  const matches = (a.interests || []).filter((i) => tool.category.includes(i)).length;
+  s += matches * 15;
   const p = a.priorities || [];
   if (p.includes("safety")) s += tool.safety * 3;
   if (p.includes("education")) s += tool.education * 3;
@@ -363,10 +675,28 @@ function getProfile(a) {
 }
 
 function getRecommendations(a) {
-  return TOOLS.map((t) => ({ ...t, score: scoreTool(t, a) }))
+  const scored = TOOLS.map((t) => ({ ...t, score: scoreTool(t, a) }))
     .filter((t) => t.score > 0)
-    .sort((x, y) => y.score - x.score)
-    .slice(0, a.experience === "never" ? 2 : 3);
+    .sort((x, y) => y.score - x.score);
+  // Pick top tools with category diversity (max 2 from same primary category)
+  const picks = [];
+  const catUsed = {};
+  const count = a.experience === "never" ? 2 : 3;
+  for (const t of scored) {
+    if (picks.length >= count) break;
+    const cat = t.category[0];
+    if ((catUsed[cat] || 0) < 2) {
+      picks.push(t);
+      catUsed[cat] = (catUsed[cat] || 0) + 1;
+    }
+  }
+  // If diversity filtering left us short, backfill
+  if (picks.length < count) {
+    for (const t of scored) {
+      if (!picks.includes(t)) { picks.push(t); if (picks.length >= count) break; }
+    }
+  }
+  return picks;
 }
 
 function getProject(a) {
