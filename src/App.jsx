@@ -579,7 +579,7 @@ function Results({ answers, onRestart }) {
       {/* Back to site CTA + Share + Restart */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
         <div style={{ display: "flex", gap: 12, width: "100%" }}>
-          <a href={CONFIG.SITE_URL + "/ai-tools"} style={{ display: "block", flex: 1, padding: "14px 20px", background: B.navy, color: "#fff", borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: "none", textAlign: "center", transition: "opacity 0.15s" }}
+          <a href={CONFIG.SITE_URL + "/ai-tools"} style={{ display: "block", flex: 1, padding: "14px 20px", background: B.cyan, color: "#fff", borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: "none", textAlign: "center", transition: "opacity 0.15s" }}
             onMouseEnter={(e) => e.currentTarget.style.opacity = 0.9}
             onMouseLeave={(e) => e.currentTarget.style.opacity = 1}>
             Explore All 50+ Tools →
