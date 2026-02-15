@@ -582,9 +582,9 @@ function Results({ answers, onRestart }) {
       {emailStep !== "done" ? (
         <div style={{ background: B.pinkLight, borderRadius: 16, padding: 24, marginBottom: 28, border: `2px solid ${B.pink}25`, textAlign: "center" }}>
           <p style={{ fontSize: 24, margin: "0 0 8px" }}>📧</p>
-          <h4 style={{ fontSize: 18, fontWeight: 700, color: B.navy, margin: "0 0 8px" }}>Want 5 more personalised recommendations?</h4>
+          <h4 style={{ fontSize: 18, fontWeight: 700, color: B.navy, margin: "0 0 8px" }}>Get your full personalised guide</h4>
           <p style={{ fontSize: 14, color: B.muted, margin: "0 0 16px", lineHeight: 1.5 }}>
-            Get your full guide plus weekly AI tool discoveries from a dad who tests everything with his own kids first.
+            We'll send 8 tailored recommendations for your {profile.tier}, plus weekly discoveries from a dad who tests everything with his own kids first.
           </p>
           {emailStep === "idle" ? (
             <button onClick={() => setEmailStep("input")} style={{ padding: "14px 32px", border: "none", borderRadius: 12, background: B.pink, color: B.white, fontSize: 16, fontWeight: 700, cursor: "pointer", boxShadow: `0 4px 15px ${B.pink}40` }}>
