@@ -597,24 +597,24 @@ function Results({ answers, onRestart }) {
         </div>
       )}
 
-      {/* Back to site CTA */}
-      <div style={{ textAlign: "center", marginBottom: 16 }}>
-        <a href={CONFIG.SITE_URL + "/ai-tools"} style={{ display: "inline-block", padding: "16px 32px", background: B.navy, color: "#fff", borderRadius: 12, fontSize: 16, fontWeight: 700, textDecoration: "none", transition: "opacity 0.15s" }}
-          onMouseEnter={(e) => e.currentTarget.style.opacity = 0.9}
-          onMouseLeave={(e) => e.currentTarget.style.opacity = 1}>
-          Explore All 50+ Tools →
-        </a>
-      </div>
-
-      {/* Share + Restart */}
-      <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-        <button onClick={() => { if (navigator.share) navigator.share({ title: "Is Your Child AI-Ready?", text: `I just found out my child is an ${profile.tier}! Take this free 2-minute assessment:`, url: window.location.href }); }}
-          style={{ padding: "10px 20px", border: `2px solid ${B.border}`, borderRadius: 10, background: "transparent", color: B.navy, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-          📤 Share Results
-        </button>
-        <button onClick={onRestart} style={{ padding: "10px 20px", border: `2px solid ${B.border}`, borderRadius: 10, background: "transparent", color: B.muted, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-          ↻ Take Again
-        </button>
+      {/* Back to site CTA + Share + Restart */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+        <div style={{ display: "flex", gap: 12, width: "100%" }}>
+          <a href={CONFIG.SITE_URL + "/ai-tools"} style={{ display: "block", flex: 1, padding: "14px 20px", background: B.navy, color: "#fff", borderRadius: 10, fontSize: 15, fontWeight: 700, textDecoration: "none", textAlign: "center", transition: "opacity 0.15s" }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = 0.9}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = 1}>
+            Explore All 50+ Tools →
+          </a>
+        </div>
+        <div style={{ display: "flex", gap: 12, width: "100%" }}>
+          <button onClick={() => { if (navigator.share) navigator.share({ title: "Is Your Child AI-Ready?", text: `I just found out my child is an ${profile.tier}! Take this free 2-minute assessment:`, url: window.location.href }); }}
+            style={{ flex: 1, padding: "10px 20px", border: `2px solid ${B.border}`, borderRadius: 10, background: "transparent", color: B.navy, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+            📤 Share Results
+          </button>
+          <button onClick={onRestart} style={{ flex: 1, padding: "10px 20px", border: `2px solid ${B.border}`, borderRadius: 10, background: "transparent", color: B.muted, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+            ↻ Take Again
+          </button>
+        </div>
       </div>
     </div>
   );
