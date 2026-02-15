@@ -597,6 +597,15 @@ function Results({ answers, onRestart }) {
         </div>
       )}
 
+      {/* Back to site CTA */}
+      <div style={{ textAlign: "center", marginBottom: 16 }}>
+        <a href={CONFIG.SITE_URL + "/ai-tools"} style={{ display: "inline-block", padding: "16px 32px", background: B.navy, color: "#fff", borderRadius: 12, fontSize: 16, fontWeight: 700, textDecoration: "none", transition: "opacity 0.15s" }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = 0.9}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = 1}>
+          Explore All 50+ Tools →
+        </a>
+      </div>
+
       {/* Share + Restart */}
       <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
         <button onClick={() => { if (navigator.share) navigator.share({ title: "Is Your Child AI-Ready?", text: `I just found out my child is an ${profile.tier}! Take this free 2-minute assessment:`, url: window.location.href }); }}
