@@ -612,16 +612,7 @@ function Results({ answers, onRestart }) {
         </div>
       )}
 
-      {/* Tools */}
-      <div style={{ marginBottom: 28 }}>
-        <h3 style={{ fontSize: 20, fontWeight: 700, color: B.navy, marginBottom: 4 }}>Your Top {tools.length} Recommended Tools</h3>
-        <p style={{ fontSize: 14, color: B.muted, margin: "0 0 16px" }}>Personalised to your child's age, interests, and your priorities</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {tools.map((t, i) => <ToolCard key={t.slug} tool={t} answers={answers} index={i} />)}
-        </div>
-      </div>
-
-      {/* Project */}
+      {/* Project — highest value content first */}
       <div style={{ background: B.cyanLight, borderRadius: 16, padding: "20px 24px", marginBottom: 28, border: `2px solid ${B.cyan}30` }}>
         <p style={{ fontSize: 12, fontWeight: 700, color: B.cyan, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>🎬 Try This First</p>
         <h4 style={{ fontSize: 18, fontWeight: 700, color: B.navy, margin: "0 0 6px" }}>{project.title}</h4>
@@ -631,6 +622,15 @@ function Results({ answers, onRestart }) {
           style={{ display: "inline-block", padding: "10px 20px", background: B.cyan, color: B.white, textDecoration: "none", borderRadius: 10, fontSize: 14, fontWeight: 700 }}>
           See Full Project →
         </a>
+      </div>
+
+      {/* Tools */}
+      <div style={{ marginBottom: 28 }}>
+        <h3 style={{ fontSize: 20, fontWeight: 700, color: B.navy, marginBottom: 4 }}>Your Top {tools.length} Recommended Tools</h3>
+        <p style={{ fontSize: 14, color: B.muted, margin: "0 0 16px" }}>Personalised to your child's age, interests, and your priorities</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {tools.map((t, i) => <ToolCard key={t.slug} tool={t} answers={answers} index={i} />)}
+        </div>
       </div>
 
       {/* Back to site CTA + Share + Restart */}
