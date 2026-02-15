@@ -298,10 +298,30 @@ const TOOLS = [
 ];
 
 const PROJECTS = [
-  { title: "Create a Cinematic Nemo Short Film", age: "8-16", time: "1 hour", interests: ["art", "video"], link: "/projects/nemo-ai-short-film-kling-nano-banana" },
+  // Video + Art projects
+  { title: "Create a Cinematic Nemo Short Film", age: "8-16", time: "1 hour", interests: ["video", "art"], link: "/projects/nemo-ai-short-film-kling-nano-banana" },
   { title: "Make a Viral AI Celebrity Selfie Video", age: "8-16", time: "1 hour", interests: ["video", "art"], link: "/projects/ai-celebrity-selfie-video-footballers" },
+  { title: "Bring a Toy to Life with Cinematic AI Video", age: "5-16", time: "1 hour", interests: ["video", "art"], link: "/projects/kling-robot-toy-cinematic-video-ai" },
+  { title: "Turn Yourself Into Movie Characters", age: "8-16", time: "45 min", interests: ["video", "art"], link: "/projects/turn-yourself-into-movie-characters-kling-motion-control" },
+  { title: "Create a 20-Second Unicorn Animation", age: "5-10", time: "45 min", interests: ["video", "art"], link: "/projects/midjourney-animation-unicorn-story-kids" },
+  { title: "Transform Movie Scenes Across Art Styles", age: "8-16", time: "45 min", interests: ["video", "art"], link: "/projects/transform-movie-scenes-zootopia-ai-project" },
+  { title: "Turn Your Child Into a Cartoon Character with AI Voice", age: "5-16", time: "30 min", interests: ["video", "art"], link: "/projects/adobe-animate-audio-kids" },
+  { title: "Turn Your Child Into a Plush Toy (and Make It Move!)", age: "5-16", time: "30 min", interests: ["video", "art"], link: "/projects/turn-child-into-plush-toy-move" },
+  // Art projects
+  { title: "Create Custom Coloring Pages From Any TV Show", age: "5-10", time: "15 min", interests: ["art"], link: "/projects/custom-coloring-pages-ai-nano-banana" },
+  { title: "Create Coloring Pages From Your Child's Imagination", age: "5-10", time: "15 min", interests: ["art"], link: "/projects/ai-coloring-pages-higgsfield-nano-banana" },
+  { title: "Turn a Photo Into a Pixar-Style Portrait", age: "5-16", time: "15 min", interests: ["art"], link: "/projects/pixar-ai-cartoon-kids" },
+  { title: "Turn Your Child Into Their Footballing Hero", age: "8-16", time: "30 min", interests: ["art"], link: "/projects/turn-child-footballing-hero-ai-style" },
+  { title: "Turn Your Child Into a Custom Action Figure", age: "5-16", time: "30 min", interests: ["art"], link: "/projects/turn-child-into-action-figure" },
+  { title: "Turn Your Child's Drawing Into a 3D Character", age: "5-16", time: "30 min", interests: ["art", "coding"], link: "/projects/turn-kids-drawings-into-3d-characters" },
+  // Learning projects
   { title: "Teach History with a NotebookLM Podcast", age: "5-16", time: "30 min", interests: ["learning"], link: "/projects/notebooklm-irish-famine-educational-podcast-kids" },
-  { title: "Create an AI FC26 Player Card", age: "8-16", time: "30 min", interests: ["art", "coding"], link: "/projects/ai-fc26-player-card" },
+  { title: "Create Personalised School Stories to Calm First-Day Anxiety", age: "5-10", time: "30 min", interests: ["learning", "writing"], link: "/projects/gemini-storybook-first-day-school-anxiety" },
+  { title: "The 5-Minute Spanish Challenge with AI", age: "5-16", time: "15 min", interests: ["learning"], link: "/projects/5-minute-spanish-challenge-bilingual-kids" },
+  // Music + Video
+  { title: "Make a Talking Baby Podcast of Yourself", age: "8-16", time: "30 min", interests: ["music", "video"], link: "/projects/ai-baby-podcast-guide" },
+  // Writing + Learning
+  { title: "Reveal a Family Holiday with an AI Treasure Hunt", age: "5-16", time: "1 hour", interests: ["writing", "learning"], link: "/projects/family-holiday-reveal-treasure-hunt-ai" },
 ];
 
 // ──────────────────────────────────────────────
@@ -350,7 +370,23 @@ function getRecommendations(a) {
 }
 
 function getProject(a) {
-  return PROJECTS.find((p) => (a.interests || []).some((i) => p.interests.includes(i))) || PROJECTS[0];
+  const [minA, maxA] = AGE_MAP[a.age] || [0, 99];
+  const scored = PROJECTS.map((p) => {
+    let s = 0;
+    const [pMin, pMax] = p.age.split("-").map(Number);
+    if (pMin > maxA || pMax < minA) return { ...p, score: -1 }; // age mismatch
+    s += 10;
+    const matches = (a.interests || []).filter((i) => p.interests.includes(i)).length;
+    s += matches * 15;
+    // Prefer quicker projects for younger/newer users
+    if (a.experience === "never" && p.time === "15 min") s += 5;
+    return { ...p, score: s };
+  }).filter((p) => p.score > 0).sort((x, y) => y.score - x.score);
+  // Pick randomly from top-scoring ties for variety
+  if (scored.length === 0) return PROJECTS[0];
+  const topScore = scored[0].score;
+  const topTier = scored.filter((p) => p.score === topScore);
+  return topTier[Math.floor(Math.random() * topTier.length)];
 }
 
 // ──────────────────────────────────────────────
