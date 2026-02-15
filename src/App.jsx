@@ -542,28 +542,7 @@ function Results({ answers, onRestart }) {
         </div>
       </div>
 
-      {/* Tools */}
-      <div style={{ marginBottom: 28 }}>
-        <h3 style={{ fontSize: 20, fontWeight: 700, color: B.navy, marginBottom: 4 }}>Your Top {tools.length} Recommended Tools</h3>
-        <p style={{ fontSize: 14, color: B.muted, margin: "0 0 16px" }}>Personalised to your child's age, interests, and your priorities</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {tools.map((t, i) => <ToolCard key={t.slug} tool={t} answers={answers} index={i} />)}
-        </div>
-      </div>
-
-      {/* Project */}
-      <div style={{ background: B.cyanLight, borderRadius: 16, padding: "20px 24px", marginBottom: 28, border: `2px solid ${B.cyan}30` }}>
-        <p style={{ fontSize: 12, fontWeight: 700, color: B.cyan, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>🎬 Try This First</p>
-        <h4 style={{ fontSize: 18, fontWeight: 700, color: B.navy, margin: "0 0 6px" }}>{project.title}</h4>
-        <p style={{ fontSize: 14, color: B.muted, margin: "0 0 14px" }}>Ages {project.age} · {project.time} · Step-by-step family project</p>
-        <a href={`${CONFIG.SITE_URL}${project.link}`}
-          onClick={() => track("project_clicked", { project: project.title })}
-          style={{ display: "inline-block", padding: "10px 20px", background: B.cyan, color: B.white, textDecoration: "none", borderRadius: 10, fontSize: 14, fontWeight: 700 }}>
-          See Full Project →
-        </a>
-      </div>
-
-      {/* Email Capture */}
+      {/* Email Capture — positioned at peak engagement right after profile reveal */}
       {emailStep !== "done" ? (
         <div style={{ background: B.pinkLight, borderRadius: 16, padding: 24, marginBottom: 28, border: `2px solid ${B.pink}25`, textAlign: "center" }}>
           <p style={{ fontSize: 24, margin: "0 0 8px" }}>📧</p>
@@ -596,6 +575,27 @@ function Results({ answers, onRestart }) {
           <p style={{ fontSize: 14, color: B.muted, margin: 0 }}>Your full personalised guide is on its way, plus weekly discoveries every Sunday.</p>
         </div>
       )}
+
+      {/* Tools */}
+      <div style={{ marginBottom: 28 }}>
+        <h3 style={{ fontSize: 20, fontWeight: 700, color: B.navy, marginBottom: 4 }}>Your Top {tools.length} Recommended Tools</h3>
+        <p style={{ fontSize: 14, color: B.muted, margin: "0 0 16px" }}>Personalised to your child's age, interests, and your priorities</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {tools.map((t, i) => <ToolCard key={t.slug} tool={t} answers={answers} index={i} />)}
+        </div>
+      </div>
+
+      {/* Project */}
+      <div style={{ background: B.cyanLight, borderRadius: 16, padding: "20px 24px", marginBottom: 28, border: `2px solid ${B.cyan}30` }}>
+        <p style={{ fontSize: 12, fontWeight: 700, color: B.cyan, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8 }}>🎬 Try This First</p>
+        <h4 style={{ fontSize: 18, fontWeight: 700, color: B.navy, margin: "0 0 6px" }}>{project.title}</h4>
+        <p style={{ fontSize: 14, color: B.muted, margin: "0 0 14px" }}>Ages {project.age} · {project.time} · Step-by-step family project</p>
+        <a href={`${CONFIG.SITE_URL}${project.link}`}
+          onClick={() => track("project_clicked", { project: project.title })}
+          style={{ display: "inline-block", padding: "10px 20px", background: B.cyan, color: B.white, textDecoration: "none", borderRadius: 10, fontSize: 14, fontWeight: 700 }}>
+          See Full Project →
+        </a>
+      </div>
 
       {/* Back to site CTA + Share + Restart */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
